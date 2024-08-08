@@ -1,0 +1,52 @@
+git init
+first commands to track all the files in particular folder
+
+ls
+to see all files in the opened folder
+
+cd <name of folder>
+to change folder
+
+cd ..
+to step back one folder from current folder
+
+git add <name of file>
+to add file to staging area
+
+git add * 
+all files will be added to staging area
+
+git status
+to see status of files   staged or untracked 
+
+git log 
+to see past history of commits
+
+git commit -m "message"
+to commit files those are  in staged area
+
+git branch
+to return name of branch
+
+----------------------if we modify any file that has been alreay commited-----------------
+git diff 
+it checks commited file with that same file that now has been modified by user
+
+git add <name of file>
+name of modified file which is already commited previously
+
+git commit -m "message"
+we can also recommit that modified file it will overwrite old file with new modified file
+
+git show
+
+
+
+
+
+
+
+
+
+
+
