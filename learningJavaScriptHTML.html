@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning JavaScript</title>
+
+    <!--🔴🟠🟡 Adding javascript file it can be added in head or body tag in between script tags-->
+    <script scr="javaScript_Basics_Learning.js"></script>
+    <!--🔴🟠🟡JavaScript code be added in  HTML code inside head or body tags with script tag. -->
+     <script>
+     function myFunction() 
+     {
+        document.getElementById("fun").innerHTML = "Paragraph changed.";
+     }
+     </script>
+
+    <!--🔴🟠🟡JavaScript code can be added within script tag or without script tag in html file in case of the body-->
+     <!--External Css-->
+    <link rel="stylesheet" href="mycssfile.css">
+</head>
+
+
+
+
+<body> 
+    <fieldset legend="">
+    <!--🔴🟠🟡Javascript in HTML to get o/p using without script tag document.getElementById("id1") -->        
+    <!--JavaScript can change innerHTML-->
+    <p id="id1">This text will be changed</p>
+    <button onclick=' document.getElementById("id1").innerHTML = "Hello JavaScript!" '>Click Me to chage innerHTML
+    </button>
+     <!--JavaScript can change the style of an HTML element.-->
+     <button onclick="document.getElementById('id1').style.fontSize='35px'">Click Me to change style</button>
+    <!--JavaScript can change HTML attribute values-->
+    <p></p><img src="th.jpeg" width="234px" height="123px" id="imgid"></img>
+    <p></p><button onclick="document.getElementById('imgid').src='https://tse1.mm.bing.net/th?id=OIP.jHvTOSF7924Ah63W7mozxQHaEo&pid=Api&P=0&h=180'">Change source</button>
+
+
+
+   <!--🔴🟠🟡Output window.alert or alert-->
+   <script>
+   //window.alert("Welcome to Sid's Website, This is window.alert. Click on Ok to continue");
+   //alert("Hello,This is alert only. Click on Ok to proceed further...");
+   console.log("This is console.log. It will get printed in browser console only not on webpage");
+   </script>
+   <button onclick="window.print()">Print this page..window.print() method in the browser to print the content of the current window.</button>
+
+
+   <!--🔴🟠🟡Functions in JavaScript-->
+   <p id="fun">A JavaScript function is a block of JavaScript code, that can be executed when "called" for.function can be called when an event occurs, like when the user clicks a button.</p>
+   <button onclick="myFunction()">Click to see magic of function</button>
+
+   <script>
+    function greet()
+    {
+        return "hello world";
+    }
+    greet;
+    //A JavaScript function is defined with the function keyword
+    //When JavaScript reaches a return statement, the function will stop executing.
+    //if you want to store then return it 
+    function myFun(a,b)
+    {
+        return a*b;
+    }
+    let variable=myFun(1,4);
+    console.log(variable);
+
+    //Function Expression
+    let add=function(numb1,numb2)     //Unnamed function
+    {
+        return numb1+numb2;
+    };           //Function Expression needs to be terminated
+    //Generally semicolon is needed at the end of loops and function only for statementswe need to terminate them
+    let res=add(3,5);
+   </script>
+
+
+   
+   
+   <!--🔴🟠🟡Primitive Data Types-->
+   <p>JavaScript has dynamic types. This means that the same variable can be used to hold different data types:</p>
+   <!--String,Number,Bigint,Boolean,Undefined,Null,Object-->
+   <p> The object data type can contain both built-in objects , and user defined objects </p>
+   <p> Built - in object types can be: Arrays, Maps, Sets , Functions. And Userdefined can be anything </p>
+
+   <p> Always declare a variable with const when you know that the value should not be changed</p>
+   <p> Javascript numbers are always one type:double (64-bit floating point) </p>
+   <p> let x = BigInt("123456789012345678901234567890");  This is Explicit Type Conversion </p>
+   <script>
+    //You can use the JavaScript typeof operator to find the type of a JavaScript variable.
+    console.log(typeof obj);
+    console.log(typeof arr);
+    console.log("The type of cv is " + typeof cv);
+    console.log(typeof d);
+    console.log(typeof car);
+
+    //Add a semicolon at the end of each executable statement:
+   </script>
+
+   
+   <!--🔴🟠🟡Constant Objects and Arrays-->
+   <p>The keyword const is a little misleading in the case of Constant Objects and Arrays as There We --can't Reassign but We can --Change the elements of constant array  --Change the properties of constant object</p>
+   
+   <p id="forobject"></p>
+   <p id="forloop"></p>
+   <p id="forarr"></p>
+   <p id="ar1"></p>
+   <p id="ar2"></p>
+   <script>
+    const cv = 678;
+    let d=32.3;
+
+    //Arrays.......................................................................
+    //elements can be of different types
+    const arr = ['Arrayele','arman',55,'salman','Ram'];          //Can't Reassign this variable arr=['arman','salman','Ram']; error
+    arr[1]='Lakshman';              //Can changes the elments in array
+    arr.push("Shree");             // Can Add elements in array
+    console.log(arr);
+    //Displaying a JavaScript object
+    document.getElementById("forarr").innerHTML=arr;
+    document.getElementById("ar1").innerHTML=arr;
+    for(let k of arr)
+    {
+        console.log(k)
+    }
+
+    //Objects......................................................................
+    //JavaScript objects are written with curly braces {}.
+    //Object properties are written as name:value pairs, separated by commas.
+    //Car objects have the same properties, but the values differ from car to car.
+    //It is a common practice to declare objects with the ....const.... keyword.
+    //Properties can be primitive values, functions, or even other ..objects..
+    const car={objtype:"valueofobj",objmodel:"200",color:"black"}; //Can't Reassign obj={objtype:"toyoto"}  error
+    car.color="red";       //Can change a property of object
+    car.owner="Siddhesh";  //Can Add a property
+    delete car.owner;
+    console.log(car);
+
+    const NewObject = new Object();
+    NewObject.property1="value1";
+    NewObject.property2="value2";
+    console.log(NewObject);
+
+    //Displaying a JavaScript object
+    //if you directly print by using doc... then it will not be printed as it is object not primitive data type
+    document.getElementById("forobject").innerHTML=NewObject.property1 + "    --------" + "This is printed using document.getElementById().innerHTML=  ";
+    let text="";
+    //To iterate object We have For In Loop for( let var_name in name_of_object){}
+    for(let x in car)
+    {
+        text=text+car[x]+" ";
+    }
+    //You must use person[x] in the loop. person.x will not work (Because x is the loop variable).
+    document.getElementById("forloop").innerHTML=text;
+
+    let alien=
+    {
+        name:'navin',
+        tech:'js',
+        laptop:{
+            cpu:'17',
+            ram:4,
+            brand1:'asus'
+        }
+    }
+    delete alien.tech;
+    console.log(alien.laptop.brandM?);
+    </script>
+
+    <!--🔴🟠🟡Object Constructor Functions-->
+    <p>Sometimes we need to create many objects of the same type...........
+    To create an object type we use an object constructor function.......        
+    It is considered good practice to name constructor functions with an upper-case first letter.
+    </p>
+    <script>
+    function Person(first, last, age, eye)
+    {
+        this.firstName = first;      //In the constructor function, this has no value....
+        this.lastName = last; //The value of this... will become the new object when a new object is created.
+        this.age = age;
+        this.eyeColor = eye;
+    }
+    const myFather = new Person("John", "Doe", 50, "blue");
+    const myMother = new Person("Sally", "Rally", 48, "green");
+   
+    </script>
+          
+    <!--🔴🟠🟡JavaScript Events-->
+    <p>HTML events are "things" that happen to HTML elements.</p>
+    <p>Here is a list of some common HTML events onchange.......An HTML element has been changed*
+        onclick........The user clicks an HTML element*
+        onmouseover.......The user moves the mouse over an HTML element*
+        onmouseout.........The user moves the mouse away from an HTML element*
+        onkeydown......The user pushes a keyboard key*
+        onload......The browser has finished loading the page</p>
+    <!--You will learn a lot more about events and event handlers in the HTML DOM chapters.-->
+    
+
+    <!--🔴🟠🟡JavaScript Strings-->
+    <!-- \ backslash escape character-->
+    <!--\n id used for	New Line-->
+    <script>
+        let b="I am \"Siddhesh\" ";
+        let text='It\'s alright.';
+        let num1=23;
+        let num2=23;
+        console.log("Addition of ${num1} and ${num2} is result");
+        console.log(b.toUpperCase());
+        console.log(b.length);
+        console.log(b.slice(1,5));
+        //console.log(b.replace("Sh","77"));
+        console.log.(b.charAt(0));
+        console.log.(b.indexOf("dd"));
+        console.log.(b.startsWith("It"));        
+    </script>
+
+    <!--🔴🟠🟡JavaScript Hoisting-->
+    
+</fieldset>
+</body>
+</html>
