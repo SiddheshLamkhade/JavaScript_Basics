@@ -38,7 +38,15 @@ name of modified file which is already commited previously
 git commit -m "message"
 we can also recommit that modified file it will overwrite old file with new modified file
 
-git show
+git checkout <commit code> --name of that particular file in that commit which you want to see
+To see old versions of that file 
+
+git checkout master -- *
+to come again latest version 
+
+
+
+
 
 
 
