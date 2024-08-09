@@ -45,7 +45,7 @@ git checkout master -- *
 to come again to see  latest version 
 
 ------------------if any mistake happend so to undo actions----------------
- git restore . or filename (. means all files)
+git restore . or filename (. means all files)
 If we add any error code in our file so if we run this command then we will get last working version of this file
 
 git restore --staged . or file name              # to unstage  

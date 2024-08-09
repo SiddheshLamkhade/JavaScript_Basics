@@ -95,7 +95,7 @@
     console.log(typeof d);
     console.log(typeof car);
 
-    //Add a semicolon at the end of each executable statement:
+    //Add a semicolon at the end of each executable statement instead of functions, loops,and conditionals
    </script>
 
    
@@ -120,10 +120,10 @@
     //Displaying a JavaScript object
     document.getElementById("forarr").innerHTML=arr;
     document.getElementById("ar1").innerHTML=arr;
-    for(let k of arr)
-    {
-        console.log(k)
-    }
+    let tet = "";
+    for (let x of arr) {  //It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists
+         tet += x;
+                        }
 
     //Objects......................................................................
     //JavaScript objects are written with curly braces {}.
@@ -137,7 +137,9 @@
     delete car.owner;
     console.log(car);
 
-    const NewObject = new Object();
+    const NewObject = new Object();  //or also const NewObject={}; is best method to create object
+    //there is no need to use new Object().
+    //For readability, simplicity and execution speed, use the object literal method.
     NewObject.property1="value1";
     NewObject.property2="value2";
     console.log(NewObject);
@@ -165,7 +167,7 @@
         }
     }
     delete alien.tech;
-    console.log(alien.laptop.brandM?);
+    console.log(alien.laptop.brandM);
     </script>
 
     <!--🔴🟠🟡Object Constructor Functions-->
@@ -178,13 +180,55 @@
     {
         this.firstName = first;      //In the constructor function, this has no value....
         this.lastName = last; //The value of this... will become the new object when a new object is created.
-        this.age = age;
+        this.age = "18";  //it will be default value for all objects created by constructor
         this.eyeColor = eye;
     }
     const myFather = new Person("John", "Doe", 50, "blue");
     const myMother = new Person("Sally", "Rally", 48, "green");
    
     </script>
+
+    <!--🔴🟠🟡JavaScript Sets-->
+    <p>A JavaScript Set is a collection of unique values.........Each value can only occur once in a Set.........The values can be of any type, primitive values or objects.</p>
+    <script>
+        const letters = new Set();
+        // Create Variables
+        const a = "a";
+        const bk = "bk";
+        const c = "c";
+
+        // Add Variables to the Set
+        letters.add(a);
+        letters.add(bk);
+        letters.add(c);
+    </script>
+
+    <!--🔴🟠🟡JavaScript Map-->
+    <p>A Map holds key-value pairs where the keys can be any datatype...................A Map remembers the original insertion order of the keys.</p>
+    <script>
+    // Create a Map
+        const fruits = new Map();
+        
+    // Set Map Values
+        fruits.set("apples", 500);
+        fruits.set("bananas", 300);
+        fruits.set("oranges", 200);
+
+        //The get() method gets the value of a key in a Map
+        fruits.get("apples");    // Returns 500
+        //typeof of map is Object
+        //instanceof Map returns true
+        fruits instanceof Map;
+        //The size property returns the number of elements in a map
+        fruits.size;
+        //The delete() method removes a map element:
+        fruits.delete("apples");
+        //The clear() method removes all the elements from a map
+        fruits.clear();
+        //The has() method returns true if a key exists in a map
+        fruits.has("apples");
+    </script>
+
           
     <!--🔴🟠🟡JavaScript Events-->
     <p>HTML events are "things" that happen to HTML elements.</p>
@@ -202,7 +246,7 @@
     <!--\n id used for	New Line-->
     <script>
         let b="I am \"Siddhesh\" ";
-        let text='It\'s alright.';
+        let texst='It\'s alright.';
         let num1=23;
         let num2=23;
         console.log("Addition of ${num1} and ${num2} is result");
@@ -210,12 +254,116 @@
         console.log(b.length);
         console.log(b.slice(1,5));
         //console.log(b.replace("Sh","77"));
-        console.log.(b.charAt(0));
-        console.log.(b.indexOf("dd"));
-        console.log.(b.startsWith("It"));        
+        console.log(b.charAt(0));
+        console.log(b.indexOf("dd"));
+        console.log(b.startsWith("It"));        
     </script>
 
-    <!--🔴🟠🟡JavaScript Hoisting-->
+    <!--🔴🟠🟡JavaScript Date Constructor-->
+    <p id="date"></p>
+    <script>
+        const dte=new Date();    
+        document.getElementById("date").innerHTML=dte;
+        //Date objects are static. The "clock" is not "running".
+        //The computer clock is ticking, date objects are not.
+    </script>
+
+    <!--🔴🟠🟡JavaScript Math-->
+    <!--The syntax for Math any methods is : Math.method(number)-->
+    <p id="mathid"></p>
+    <p id="math2"></p>
+    <p id="math3"></p>
+    <script>
+        //Unlike other objects, the Math object has no constructor.
+        document.getElementById("mathid").innerHTML ="The power of 8 is  "+ Math.pow(8,2);
+        document.getElementById("math2").innerHTML ="The random no is "+ Math.random();//There is no such thing as JavaScript integers.
+        //We are talking about numbers with no decimals here. so we have to use Math.floor()
+        document.getElementById("math3").innerHTML ="The random no is "+ Math.floor(Math.random() * 10);
+
+        //There are 4 common methods to round a number to an integer:
+    
+        <pre>  Math.round(x).........Returns x rounded to its nearest integer         Math.round(4.6); ===5
+        Math.ceil(x)...........Returns x rounded up to its nearest integer     Math.ceil(4.4);  ===5......rounded up to its nearest integer
+        Math.floor(x).........Returns x rounded down to its nearest integer    Math.floor(4.7); ===4.....rounded down to its nearest int
+        Math.trunc(x)........Returns the integer part of x (new in ES6)        Math.trunc(x.644863) returns the integer part of x  
+        Math.abs(x) returns the absolute (positive) value of x                 Math.abs(-4.7);   ===4.7
+        Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments
+        ----------------Math.min(0, 150, 30, 20, -8, -200); 
+        You can use the Boolean() function to find out if an expression (or a variable) is true    Boolean(10 > 9) ===true   </pre>
+    </script>
+
+
+    <!--🔴🟠🟡JavaScript Comparison and Logical Conditional (Ternary)   Operators-->
+    <pre>
+    ==	equal to
+    ===	equal value and equal type
+    !=	not equal
+    !==	not equal value or not equal type
+    </pre>
+
+    <pre> Given that x = 6 and y = 3
+    &&	and	(x < 10 && y > 1) is true
+    ||	or	(x == 5 || y == 5) is false
+    !	not	!(x == y) is true
+    </pre>
+
+    <!--
+    JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.
+    Syntax           variablename = (condition) ? value1:value2 
+                     let voteable = (age < 18) ? "Too young":"Old enough";
+    it age<18 this condition will be true then first value1 will be printed otherwise second
+    -->
+
+    <!--🔴🟠🟡JavaScript Switch statement-->
+
+     <pre>    
+    switch(expression) {
+        case x:
+         // code block
+        break;
+        case y:
+        // code block
+        break;
+        default:
+        // code block
+                        }
+     </pre>
+
+     <!--🔴🟠🟡JavaScript Good Practices-->
+     <script>
+     //Don't Use new Object()
+     /*
+    Use "" instead of new String()
+    Use 0 instead of new Number()
+    Use false instead of new Boolean()
+    Use {} instead of new Object()
+    Use [] instead of new Array()
+    Use /()/ instead of new RegExp()
+    Use function (){} instead of new Function()
+     */
+
+     //Avoid Number, String, and Boolean as Objects
+     /*
+     let x = "John";             
+     let y = new String("John");
+     (x === y)             // is false because x is a string and y is an object.
+     */
+
+     //Misunderstanding Floats\
+     //All numbers in JavaScript are stored as 64-bits Floating point numbers (Floats).
+     let x = 0.1;
+     let y = 0.2;
+     let z = x + y            // the result in z will not be 0.3 it will be 0.30000000000000004
+     //To solve the problem above, it helps to multiply and divide:
+     let z = (x * 10 + y * 10) / 10;       // z will be 0.3
+
+
+     //Breaking a JavaScript String
+     //JavaScript will allow you to break a statement into two lines
+     let x =
+     "Hello World!";
+
+    </script>
     
 </fieldset>
 </body>
