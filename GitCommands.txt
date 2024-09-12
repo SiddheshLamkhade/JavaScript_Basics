@@ -93,6 +93,11 @@ it is file in which we adds name of files which we don't want to be commited
 
 --------------------------------------------------------------
 git clean -n
-removes untracked files
-git clean 
-don't use
+deletes untracked files
+
+git clean -f ------------ before using run above command don't use
+
+Remove the File:    git rm filename
+Use the git rm command to delete a file that is being tracked by Git.
+
+
