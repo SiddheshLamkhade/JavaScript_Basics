@@ -6,9 +6,9 @@
     <title>Learning JavaScript</title>
 
 
-    <!--🔴🟠🟡 Adding javascript *file* it can be added in head or body tag in between script tags-->
+    <!--🔴🟠🟡Adding javascript *file* it can be added in head or body tag in between script tags-->
     <script scr="javaScript_Basics_Learning.js"></script>
-    <!--🔴🟠🟡JavaScript *code* be added in  HTML code inside head or body tags with script tag. -->
+    <!--🔴🟠🟡JavaScript *code* be added in  HTML code inside head or body tags with the help of script tag. -->
      <script>
      function myFunction() 
      {
@@ -16,9 +16,8 @@
      }
      </script>
 
-    <!--🔴🟠🟡JavaScript code can be added within script tag or without script tag in html file in case of the body
-    using DOM-->
-     <!--External Css-->
+    <!--🔴🟠🟡JavaScript code can be added *within* script tag or *without* script tag in body *Using DOM*-->
+    <!--External Css-->
 
     <link rel="stylesheet" href="mycssfile.css">
 </head>
@@ -27,16 +26,19 @@
 <body> 
     <fieldset legend="">
 
-   <!--🔴🟠🟡Output window.alert or alert-->
+   <!--🔴🟠🟡(1) Output window.alert or alert-->
    <script>
    //alert("Hello,This is alert only. Click on Ok to proceed further...");
    console.log("This is console.log. It will get printed in browser console only not on webpage");
    </script>
-   <button onclick="window.print()">Print this page..window.print() method in the browser to print the content of the current window.</button>
+   <!--window.print-->
+   <button onclick="window.print()">Print this page.. window.print() method is used for printing the content of the current window.</button>
 
 
-   <!--🔴🟠🟡Functions in JavaScript-->
-   <p id="fun">A JavaScript function is a block of JavaScript code, that can be executed when "called" for.function can be called when an event occurs, like when the user clicks a button.</p>
+   <!--🔴🟠🟡(2) Functions in JavaScript-->
+   <p id="fun">A JavaScript function is a block of JavaScript code, that can be executed when "called" for .
+    function can be called when an event occurs, like when the user clicks a button.</p>
+    
    <button onclick="myFunction()">Click to see magic of function</button>
 
    <script>
@@ -60,21 +62,21 @@
     {
         return numb1+numb2;
     };           //Function Expression needs to be terminated
-    //Generally semicolon is needed at the end of loops and function only for statementswe need to terminate them
+    //Generally semicolon is needed at the end of statements only,we need to terminate them
     let res=add(3,5);
    </script>
 
 
    
    
-   <!--🔴🟠🟡Primitive Data Types-->
+   <!--🔴🟠🟡(3) Primitive Data Types-->
    <p>JavaScript has dynamic types. This means that the same variable can be used to hold different data types:</p>
    <!--String,Number,Bigint,Boolean,Undefined,Null,Object-->
-   <p> The object data type can contain both built-in objects , and user defined objects </p>
-   <p> Built - in object types can be: Arrays, Maps, Sets , Functions. And Userdefined can be anything </p>
+   <p> The object data type can contain both built-in objects , and User defined objects </p>
+   <p> Built-in object types can be: Functions, Arrays, Maps, Sets. And Userdefined can be anything </p>
 
    <p> Always declare a variable with const when you know that the value should not be changed</p>
-   <p> Javascript numbers are always one type:double (64-bit floating point) </p>
+   <p> Javascript numbers are always one type : double (64-bit floating point) </p>
    <p> let x = BigInt("123456789012345678901234567890");  This is Explicit Type Conversion </p>
    <script>
     //You can use the JavaScript typeof operator to find the type of a JavaScript variable.
@@ -84,12 +86,17 @@
     console.log(typeof d);
     console.log(typeof car);
 
-    //Add a semicolon at the end of each executable statement instead of functions, loops,and conditionals
+    //Add a semicolon at the end of each executable statement except functions, loops,and conditionals
    </script>
 
    
-   <!--🔴🟠🟡Constant Objects and Arrays-->
-   <p>The keyword const is a little misleading in the case of Constant Objects and Arrays as There We --can't Reassign but We can --Change the elements of constant array  --Change the properties of constant object</p>
+   <!--🔴🟠🟡(4) Constant Objects and Arrays-->
+   <p>
+    The keyword const is a little misleading in the case of Constant Objects and Arrays as 
+    There We can't Reassign but We can 
+             --Change the elements of constant array  
+             --Change the properties of constant object
+   </p>
    
    <p id="forobject"></p>
    <p id="forloop"></p>
@@ -102,7 +109,7 @@
 
     //Arrays.......................................................................
     //elements can be of different types
-    const arr = ['Arrayele','arman',55,'salman','Ram'];          //Can't Reassign this variable arr=['arman','salman','Ram']; error
+    const arr = ['Arrayele','arman',55,'salman','Ram']; //Can't Reassign this variable arr=['arman','salman','Ram']; error
     arr[1]='Lakshman';              //Can changes the elments in array
     arr.push("Shree");             // Can Add elements in array
     console.log(arr);
@@ -126,16 +133,17 @@
     delete car.owner;
     console.log(car);
 
-    const NewObject = new Object();  //or also const NewObject={}; is best method to create object
+    const NewObject = new Object();  //or also *const NewObject={}* ; is best method to create object
     //there is no need to use new Object().
-    //For readability, simplicity and execution speed, use the object literal method.
+    //For readability, simplicity and execution speed, use the object literal.
+    // object literal in JavaScript is a simple way to create an object using curly braces {}.
     NewObject.property1="value1";
-    NewObject.property2="value2";
+    NewObject.property2="value2";  
     console.log(NewObject);
 
     //Displaying a JavaScript object
     //if you directly print by using doc... then it will not be printed as it is object not primitive data type
-    document.getElementById("forobject").innerHTML=NewObject.property1 + "    --------" + "This is printed using document.getElementById().innerHTML=  ";
+    document.getElementById("forobject").innerHTML=NewObject.property1 + "    --------" + "This is printed using document.getElementById().innerHTML= ";
     let text="";
     //To iterate object We have For In Loop for( let var_name in name_of_object){}
     for(let x in car)
@@ -145,7 +153,7 @@
     //You must use person[x] in the loop. person.x will not work (Because x is the loop variable).
     document.getElementById("forloop").innerHTML=text;
 
-    let alien=
+    let alien =
     {
         name:'navin',
         tech:'js',
@@ -153,13 +161,13 @@
             cpu:'17',
             ram:4,
             brand1:'asus'
-        }
+               }
     }
     delete alien.tech;
-    console.log(alien.laptop.brandM);
+    console.log(alien.laptop.brand1);
     </script>
 
-    <!--🔴🟠🟡Object Constructor Functions-->
+    <!--🔴🟠🟡(5) Object Constructor Functions-->
     <p>Sometimes we need to create many objects of the same type...........
     To create an object type we use an object constructor function.......        
     It is considered good practice to name constructor functions with an upper-case first letter.
