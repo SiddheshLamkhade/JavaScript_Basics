@@ -47,28 +47,44 @@
         return "hello world";
     }
     greet;
-    //A JavaScript function is defined with the function keyword
+    //1️⃣A JavaScript function is defined with the function keyword
     //When JavaScript reaches a return statement, the function will stop executing.
     //if you want to store then return it 
-    function myFun(a,b)
+    function myFun(a,b)  
     {
         return a*b;
     }
     let variable=myFun(1,4);
     console.log(variable);
 
-    //Function Expression
+    //default parameters
+    function add(x=1,y=2)  
+    {
+        return x+y;
+    }
+    console.log(add(3,4));   //output =7
+    console.log(add(5));     //output =5+2=7
+    console.log(add());      //output =1+2+3
+
+
+
+    //2️⃣Function Expression
     let add=function(numb1,numb2)     //Unnamed function
     {
         return numb1+numb2;
     };           //Function Expression needs to be terminated
     //Generally semicolon is needed at the end of statements only,we need to terminate them
     let res=add(3,5);
+   
+   //3️⃣Arrow Function
+   let addition=(numb1,numb2)=>
+   {
+    return numb1+numb2;
+   }
    </script>
 
 
-   
-   
+
    <!--🔴🟠🟡(3) Primitive Data Types-->
    <p>JavaScript has dynamic types. This means that the same variable can be used to hold different data types:</p>
    <!--String,Number,Bigint,Boolean,Undefined,Null,Object-->
@@ -120,13 +136,24 @@
     for (let x of arr) {  //It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists
          tet += x;
                         }
+    
 
+    <!--Spread Operator for array-->
+    //let arr=['a','b','c'];
+    //console.log(arrstr);  OUTPUT:-  ['a','b','c']
+    //console.log(...arr);  OUTPUT:-  ABC
+
+    //Clone using Spread Operator
+    //let arr2=[...arr];
+    //console.log(arr2);    OUTPUT:-  ['a','b','c']
+
+    
     //Objects......................................................................
     //JavaScript objects are written with curly braces {}.
     //Object properties are written as name:value pairs, separated by commas.
     //Car objects have the same properties, but the values differ from car to car.
     //It is a common practice to declare objects with the ....const.... keyword.
-    //Properties can be primitive values, functions, or even other ..objects..
+    //Properties can be primitive values, functions, or even other ..objects..They don't have index.
     const car={objtype:"valueofobj",objmodel:"200",color:"black"}; //Can't Reassign obj={objtype:"toyoto"}  error
     car.color="red";       //Can change a property of object
     car.owner="Siddhesh";  //Can Add a property
@@ -150,6 +177,21 @@
     {
         text=text+car[x]+" ";
     }
+
+    for(let key in car)
+    {
+        console.log(key);  //OUTPUT:- it access only key :- objtype objmodel color
+
+        console.log(car[key]); //OUTPUT:- it access only values :- valueobj 200 black 
+
+        console.log(key,":",car[key]); // it access both key-value.
+
+        //object.key(nameofobject) - gives array of object properties
+        console.log(object.keys(car)); //output: ["objtype","objmodel","color"]
+        //object.values(nameofobject) - gives array of object values
+        console.log(object.values(car)); //output: ["valueobj",200,"black"]
+    }
+
     //You must use person[x] in the loop. person.x will not work (Because x is the loop variable).
     document.getElementById("forloop").innerHTML=text;
 
@@ -165,6 +207,10 @@
     }
     delete alien.tech;
     console.log(alien.laptop.brand1);
+    //Another Way to access element of OBJECT called Bracket Notation
+    //console.log(alien["name"]);
+    //this is good way as because suppose we use dot notation e.g
+    //console.log(alien.name of alien); will give an error.
     </script>
 
     <!--🔴🟠🟡(5) Object Constructor Functions-->
@@ -185,8 +231,87 @@
    
     </script>
 
-    <!--🔴🟠🟡JavaScript Sets-->
-    <p>A JavaScript Set is a collection of unique values.........Each value can only occur once in a Set.........The values can be of any type, primitive values or objects.</p>
+    <!--🔴🟠🟡(5.2) Javascript Class-->
+    <pre>
+    A JavaScript class is not an object.
+    It is template for JavaScript Objects.
+
+       Syntax:-   
+       class ClassName {
+                       constructor() { ... }
+                       }    
+
+       E.g.:-
+       class Car 
+       {
+        constructor(name, year)
+        {
+          this.name = name;
+          this.year = year;
+        }
+       } 
+
+    When you have a class, you can use the class to create objects:
+        const myCar1 = new Car("Ford", 2014);
+        const myCar2 = new Car("Audi", 2019);
+       
+    The example above uses the Car class to create two Car objects.
+    </pre>
+    <script>
+            class Animal 
+            {
+                constructor(name) 
+                {   this.name=name;
+                    console.log("Object is created...");
+                }
+                eats() 
+                {
+                    console.log("I am eating...");
+                }
+                jumps() 
+                {
+                    console.log("I am jumping...");
+                }
+            }
+
+            let obj = new Animal(); // Create an Animal object
+            console.log(obj);
+
+            // Inheritance
+            class Lion_animal extends Animal 
+            {
+                constructor(name) 
+                {
+                    super(name); // Call the parent class (Animal) constructor
+                    //In the constructor of a child class, you must call super() before accessing this.
+                    //This is required because JavaScript needs to initialize the parent class before it can work with the child class.
+
+                    console.log("Object is created and it is a lion...");
+                }
+                eats() 
+                {
+                    super.eats(); // Call the parent class's eats method
+                    console.log("I am a lion, and I am eating too...");
+                }
+            }
+
+            let lion = new Lion_animal(); // Create a Lion_animal object
+            lion.eats(); // Call the Lion_animal eats method
+
+    </script>
+
+
+
+    <!--🔴🟠🟡(6) JavaScript Sets-->
+    <p>A JavaScript Set is a collection of *unique values*.
+        Each value can only occur once in a Set.
+        The values can be of any type, primitive values or objects.
+        Sets are ITERABLE.
+        Order is not guaranted.
+        No index based access.
+        It has own methods.
+        In Array data is ordered by index whereas Sets cannot.
+    </p>
     <script>
         const letters = new Set();
         // Create Variables
@@ -198,24 +323,42 @@
         letters.add(a);
         letters.add(bk);
         letters.add(c);
+        letters.delete("a"); //to delete specific element.
+        letters.clear();  //remove all elements 
+        letters.has('a');   //to check whether an element exists in sets or not.
     </script>
 
-    <!--🔴🟠🟡JavaScript Map-->
-    <p>A Map holds key-value pairs where the keys can be any datatype...................A Map remembers the original insertion order of the keys.</p>
+    <!--🔴🟠🟡(7) JavaScript Map-->
+    <p>
+    A Map holds key-value pairs where the keys can be any datatype similar to an OBJECT.
+    A Map remembers the original insertion order of the keys.
+    
+    Why we need Map ? If we have Object ?
+    - - >In objects Keys are only strings and symbols.
+    - - >But in Map, we can use any value as Key.
+    </p>
     <script>
     // Create a Map
         const fruits = new Map();
-        
-    // Set Map Values
-        fruits.set("apples", 500);
-        fruits.set("bananas", 300);
-        fruits.set("oranges", 200);
+
+        //typeof of fruits is Object
+        //instanceof Map returns true. 
+        //instanceof is used to check if an object belongs to a specific class or constructor. 
+        /*
+        function Car(){}
+        const myCar = new Car();
+        console.log(myCar instanceof Car); // true
+        */
+        fruits instanceof Map;
+
+        // Set Map Values
+        fruits.set("apples",500);
+        fruits.set("bananas",300);
+        fruits.set("oranges",200);
 
         //The get() method gets the value of a key in a Map
         fruits.get("apples");    // Returns 500
-        //typeof of map is Object
-        //instanceof Map returns true
-        fruits instanceof Map;
+
         //The size property returns the number of elements in a map
         fruits.size;
         //The delete() method removes a map element:
@@ -224,21 +367,21 @@
         fruits.clear();
         //The has() method returns true if a key exists in a map
         fruits.has("apples");
-    </script>
+    </script>  
 
           
-    <!--🔴🟠🟡JavaScript Events-->
-    <p>HTML events are "things" that happen to HTML elements.</p>
-    <p>Here is a list of some common HTML events onchange.......An HTML element has been changed*
-        onclick........The user clicks an HTML element*
+    <!--🔴🟠🟡(8) JavaScript Events-->
+    <p> HTML events are "things" that happen to HTML elements.</p>
+    <p> Here is a list of some common HTML events onchange....... An HTML element has been changed*
+        onclick    ........The user clicks an HTML element*
         onmouseover.......The user moves the mouse over an HTML element*
-        onmouseout.........The user moves the mouse away from an HTML element*
-        onkeydown......The user pushes a keyboard key*
-        onload......The browser has finished loading the page</p>
+        onmouseout .........The user moves the mouse away from an HTML element*
+        onkeydown  ......The user pushes a keyboard key*
+        onload     ......The browser has finished loading the page</p>
     <!--You will learn a lot more about events and event handlers in the HTML DOM chapters.-->
     
 
-    <!--🔴🟠🟡JavaScript Strings-->
+    <!--🔴🟠🟡(9) JavaScript Strings-->
     <!-- \ backslash escape character-->
     <!--\n id used for	New Line-->
     <script>
@@ -256,7 +399,7 @@
         console.log(b.startsWith("It"));        
     </script>
 
-    <!--🔴🟠🟡JavaScript Date Constructor-->
+    <!--🔴🟠🟡(10) JavaScript Date Constructor-->
     <p id="date"></p>
     <script>
         const dte=new Date();    
@@ -265,7 +408,7 @@
         //The computer clock is ticking, date objects are not.
     </script>
 
-    <!--🔴🟠🟡JavaScript Math-->
+    <!--🔴🟠🟡(11) JavaScript Math-->
     <!--The syntax for Math any methods is : Math.method(number)-->
     <p id="mathid"></p>
     <p id="math2"></p>
@@ -275,13 +418,19 @@
         document.getElementById("mathid").innerHTML ="The power of 8 is  "+ Math.pow(8,2);
         document.getElementById("math2").innerHTML ="The random no is "+ Math.random();//There is no such thing as JavaScript integers.
         //We are talking about numbers with no decimals here. so we have to use Math.floor()
+        //If we hadn't used floor then it would have written numbers with decimal points.
         document.getElementById("math3").innerHTML ="The random no is "+ Math.floor(Math.random() * 10);
 
         //There are 4 common methods to round a number to an integer:
     
         /*  Math.round(x).........Returns x rounded to its nearest integer         Math.round(4.6); ===5
-        Math.ceil(x)...........Returns x rounded up to its nearest integer     Math.ceil(4.4);  ===5......rounded up to its nearest integer
-        Math.floor(x).........Returns x rounded down to its nearest integer    Math.floor(4.7); ===4.....rounded down to its nearest int
+
+        Math.ceil(x)...........Returns x rounded up to its nearest integer     Math.ceil(4.4);  ===5
+        ......rounded up to its nearest integer
+
+        Math.floor(x).........Returns x rounded down to its nearest integer    Math.floor(4.7); ===4
+        .....rounded down to its nearest int
+        
         Math.trunc(x)........Returns the integer part of x (new in ES6)        Math.trunc(x.644863) returns the integer part of x  
         Math.abs(x) returns the absolute (positive) value of x                 Math.abs(-4.7);   ===4.7
         Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments
@@ -290,28 +439,29 @@
     </script>
 
 
-    <!--🔴🟠🟡JavaScript Comparison and Logical Conditional (Ternary)   Operators-->
+    <!--🔴🟠🟡(12) JavaScript Comparison and Logical Conditional (Ternary)   Operators-->
     <pre>
-    ==	equal to
+    ==	equal to (value)
+    !=	not equal (value)
     ===	equal value and equal type
-    !=	not equal
     !==	not equal value or not equal type
     </pre>
 
-    <pre> Given that x = 6 and y = 3
-    &&	and	(x < 10 && y > 1) is true
-    ||	or	(x == 5 || y == 5) is false
-    !	not	!(x == y) is true
+    <pre> 
+    .....Given that x = 6 and y = 3.....
+    &&	and	(x < 10 && y > 1) is true.
+    ||	or	(x == 5 || y == 5) is false. 
+    !	not	!(x == y) is true.
     </pre>
 
     <!--
     JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.
-    Syntax           variablename = (condition) ? value1:value2 
-                     let voteable = (age < 18) ? "Too young":"Old enough";
+    Syntax           variablename = (condition) ? value1(true):value2(false) 
+                     let voteable = (age < 18) ? "Too young" : "Old enough";
     it age<18 this condition will be true then first value1 will be printed otherwise second
     -->
 
-    <!--🔴🟠🟡JavaScript Switch statement-->
+    <!--🔴🟠🟡(13) JavaScript Switch statement-->
 
      <pre>    
     switch(expression) {
@@ -326,27 +476,30 @@
                         }
      </pre>
 
-     <!--🔴🟠🟡JavaScript Good Practices-->
-     <script>
-     //Don't Use new Object()
-     /*
-    Use "" instead of new String()
+    <!--🔴🟠🟡(14) JavaScript Good Practices-->
+    <script>
+    //1️⃣Don't Use new Object ()
+    //Avoid Number, String, Boolean as Objects
+
+    /*  
     Use 0 instead of new Number()
+    Use "" instead of new String()
     Use false instead of new Boolean()
-    Use {} instead of new Object()
+
+    Use function(){} instead of new Function()
     Use [] instead of new Array()
+    Use {} instead of new Object()
     Use /()/ instead of new RegExp()
-    Use function (){} instead of new Function()
+    */
+    
+
+     /*2️⃣
+     let x = "John";                          ........*string*  
+     let y = new String("John");              ........*object*
+     (x === y)             // is false because x is a *string* and y is an *object*
      */
 
-     //Avoid Number, String, and Boolean as Objects
-     /*
-     let x = "John";             
-     let y = new String("John");
-     (x === y)             // is false because x is a string and y is an object.
-     */
-
-     //Misunderstanding Floats\
+     //3️⃣Misunderstanding Floats\
      //All numbers in JavaScript are stored as 64-bits Floating point numbers (Floats).
      let x = 0.1;
      let y = 0.2;
@@ -355,11 +508,54 @@
      let zm = (x * 10 + y * 10) / 10;       // zm will be 0.3
 
 
-     //Breaking a JavaScript String
+     //4️⃣Breaking a JavaScript String
      //JavaScript will allow you to break a statement into two lines
      let xm=
      "Hello World!";
     </script>
+
+    <!-- 🔴🟠🟡(15) Hoisting..... -->
+    <pre>
+        Hoisting is a behavior in which a function or a variable can be used before declartion.
+    </pre>  
+
+    <!--1️⃣variable hoisting-->
+    <script>
+        console.log(name);  //undefined
+        var name="Siddesh";
+        //It will not cause any error.
+        //In case of let and const keyword it will CAUSE ERROR.
+        //So in nutshell, let and const variables are hoisted but they cannot be accessed before their declaration.
+    </script>
+
+    <!--2️⃣Function hoisting-->
+    <script>
+        //Funtion can be called before declaring it.
+
+        myfun(); //..............Function Called.
+
+        function myfun()//.......Function Declaration.
+        {
+            console.log("Function Hoisting");
+        }
+    </script>
+
+    <!--Function Expression Hoisting  NOT POSSIBLE-->
+    <script>
+        name();           //ERROR
+        var name=function (){ };
+    </script>
+
+    <!--Arrow Function Hoisting  NOT POSSIBLE-->
+    <script>
+        name();           //ERROR
+        var name=()=>{ };
+        //So in Nutshell, Javascript doesn't hoist the Function Expression and Arrow Function.
+    </script>
+
+
+    
+
 
     
 </fieldset>

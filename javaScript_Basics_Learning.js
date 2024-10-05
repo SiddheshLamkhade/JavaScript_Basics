@@ -7,8 +7,8 @@ g = 'amar';  // Dynamic language
 console.log(g);
 
 // Variables are declared using let keyword
-/*.............cut this line✂️✂️✂️✂️✂️✂️✂️✂️
-// ............🔴🟠🟡JavaScript Projects Faulty Calculator..........
+/*............✂️✂️✂️✂️✂️✂️✂️✂️
+// ............🔴🟠🟡(1) JavaScript Projects Faulty Calculator..........
 let random = Math.random();
 let a = prompt("Enter first number");
 let b = prompt("Enter second number");
@@ -29,9 +29,9 @@ if (random > 0.1) {
     c = object[c];
     alert(`The result is ${eval(`${a} ${c} ${b}`)}`);    
 }
-...............cut this line✂️✂️✂️✂️✂️✂️✂️✂️*/
 
-//............🔴🟠🟡JavaScript Projects Buisenes Name Generator..........
+
+//............🔴🟠🟡(2) JavaScript Projects Buisenes Name Generator..........
 let rand=Math.random();
 let first , second, third;
 //0 0.33 0.66 100
@@ -82,6 +82,8 @@ else
     }
 
     console.log(`${first} ${second} ${third}`);
+..............✂️✂️✂️✂️✂️✂️✂️✂️*/
 
-    //............🔴🟠🟡
+//............🔴🟠🟡(3) JavaScript Projects Promices
+
     

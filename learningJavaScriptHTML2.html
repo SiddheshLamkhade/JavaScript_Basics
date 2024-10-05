@@ -9,18 +9,34 @@
     
 
     <!--🔴🟠🟡JavaScript  CODE WITH HARRY CONCEPTS-->
-    <!--
 
-    🔴prompt()
+    <!--🔴🟠🟡(1) prompt()
     In JavaScript, prompt() is used to display a dialog box that prompts the user to input some text.
     It pauses the script execution until the user provides an input and then returns that input as a string. 
     same as alert but alert() just shows a message and doesn't expect any input. 
 
     let name = prompt("Enter name : ");
+    -->
 
-    🔴Template Literals
+    <!--🔴🟠🟡(1.1) confirm()
+    When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed.
+    If the user clicks "OK", the box returns true. If the user clicks "Cancel", the box returns false.
+    -->
+    <script>
+    if(confirm("Press a button!")) 
+        {
+            txt = "You pressed OK!";
+        } 
+    else{
+       txt = "You pressed Cancel!";
+        }
+    </script>
+    
+
+    <!--🔴🟠🟡(2) Template Literals
+
     Template literals are a *feature* in JavaScript that provide an easier way to work with *strings*,
-     especially when you need to *include* ..expressions or variables.. *inside them*. They are 
+    especially when you need to *include* ..expressions or variables.. *inside them*. They are 
     ...enclosed by backticks (``) instead of single quotes ('') or double quotes ("")...
 
 USECASES ⚪Multiline String: 
@@ -61,9 +77,9 @@ The sum of 5 and 10 is 15.
     are used for template literals, which allow you to embed expressions inside strings.
 
     Quotes (' or ") 
-    are used for regular strings........................................................
+    are used for regular strings...................................................-->
 
-    🔴Use of Eval
+    <!--🔴🟠🟡(3) Use of Eval () function
     eval is a JavaScript *function* that evaluates a string as JavaScript code.
 
     let a = 5;
@@ -72,12 +88,304 @@ The sum of 5 and 10 is 15.
     let expression = `${a} ${operation} ${b}`;
     let result = eval(expression);
     console.log(result);  // Output: 15
-
-
-
-
-
-
     -->
+
+    <!--🔴🟠🟡(4) Callback Function, Asynchronous functions,Javascript Promises-->
+    <script>
+       /*1️⃣Callback Function
+        A callback is a function passed as an argument to another function.
+        Means function can be passed to another function as an argument.
+
+        Function Sequence:-
+        JavaScript functions are executed in the sequence they are called. Not in the sequence they are defined.
+       */
+
+       const callbackfun=(arg)=>{console.log(arg)};
+       const func=(src,callbackfun)=>{callback("Harry")}; 
+       // When you pass a function as an argument, remember not to use parenthesis.
+    </script>
+
+    <script>
+        /*2️⃣Asynchronous functions - setTimeout
+        The setTimeout function in JavaScript is used to execute a function or a block of code after a specified amount of time. The delay is measured in milliseconds.
+         Syntax:-                    setTimeout(function, delay);
+        --function: The code you want to run after the delay.
+        --delay: The time in milliseconds (1000 milliseconds = 1 second) after which the function will run.
+
+
+
+        In the real world, callbacks are most often used with Asynchronous functions.        
+        In the example below , myFunction is used as a callback.
+        myFunction is passed to setTimeout() as an argument.
+        3000 is the number of milliseconds before time-out, so myFunction() will be called after 3 seconds.
+        */
+
+        setTimeout(myFunction, 3000);  //Asynchronous function
+        function myFunction()          //Callback function
+        {
+            document.getElementById("demo").innerHTML = "I love You !!";
+        }
+    </script>
+
+    <script>
+        /*3️⃣Javascript Promises
+
+        "Producing code" is code that can take some time.
+
+        "Consuming code" is code that must wait for the result.
+
+        A Promise is an *Object* that links Producing code and Consuming code⤵️
+
+        JavaScript Promises are a way to handle asynchronous operations, like loading data from a server or waiting for a timer. 
+        They allow you to work with actions that might take time to complete without stopping the rest of your code from running.
+
+        Why use Promises?
+         Without promises, handling asynchronous code can get messy, especially when dealing with multiple callbacks. 
+         Promises provide a cleaner, more readable structure.
+        ................................................................*/
+        ///W3 School example.........
+        let myPromise = new Promise(function(myResolve, myReject) 
+        {
+            // "Producing Code" (May take some time)
+            myResolve(); // when successful
+            myReject();  // when error
+        });
+        // "Consuming Code" (Must wait for a fulfilled Promise)
+        myPromise.then(
+            function(value) { /* code if successful */ },
+            function(error) { /* code if some error */ }
+                    ); 
+
+        /*note: Promise.then() takes two arguments, a callback for success and another   for failure.
+                Both are optional, so you can add a callback for success or failure only*/
+        //.........................................................
+        
+        
+        
+        ///Harry's example..........
+        let prom1=new Promise((resolve,reject)=>{
+            let a=Math.random();
+            if(a<0.5){
+                reject("NO random number was not supporting you")
+            }
+            else{
+                setTimeout(()=>{
+                console.log("I am done")
+                resolve("Harry")},3000);
+            }
+            
+        })
+        prom1.then((a)=>{
+            console.log(a)
+        }).catch((err)=>{console.log(err)})
+        //.........................................................
+        
+        ///W3 third example
+        function myDisplayer(some) {
+        document.getElementById("demo").innerHTML = some;
+        }
+    
+        let myPromise = new Promise(function(myResolve, myReject) {
+        let x = 0;
+        // The producing code (this may take some time)
+        if (x == 0) {
+            myResolve("OK");
+        } else {
+            myReject("Error");
+        }
+        });
+
+        myPromise.then(
+        function(value) {myDisplayer(value);},
+        function(error) {myDisplayer(error);}
+        );
+        // Refer this page for more understanding :-  https://www.w3schools.com/js/js_promise.asp
+        //.............................................................
+    </script>
+
+    <script>
+        /*4️⃣Async and Await
+        async makes a function return a Promise.
+        await makes a function wait for a Promise.
+        */
+
+
+        //⚪Async
+        //The keyword async before a function makes the function return a promise:
+        async function myFunction() {
+                return "Hello";
+            }
+        //is the same as
+        function myFunction() {
+                return Promise.resolve("Hello");
+            }
+
+        //here is how to use
+        async function myFunction() {
+            return "Hello";
+            }
+        myFunction().then(
+            function(value) {myDisplayer(value);},
+            function(error) {myDisplayer(error);}
+        );
+
+
+
+        //⚪Await
+        //The await keyword can only be used inside an async function.
+        //The await keyword makes the function pause the execution and wait for a resolved promise before it continues:
+        let value = await promise;
+
+        //let's go slowly and learn how to use it 
+        async function myDisplay() 
+        {
+        let myPromise = new Promise(function(resolve, reject) {
+        resolve("I love You !!");
+        });
+        document.getElementById("demo").innerHTML = await myPromise;
+        }
+        myDisplay();
+        //Note:- The two arguments (resolve and reject) are pre-defined by JavaScript.
+        //       We will not create them, but call one of them when the executor function is ready.
+        //       Very often we will not need a reject function
+
+        //Harry's Example
+        async function getData()
+        {
+            return new Promise((resolve,reject)=>
+            {
+                setTimeout(()=>
+                {
+                    resolve(455)
+                },3300);
+            })
+        }
+
+        async function main()   //because await can be used only in await function
+        {
+            console.log("these lines of code will run...");
+            console.log("even we have defined async function above");
+            console.log("eventhough it will be waiting to get run for 3000 milisecond");
+            console.log("because this is asynchronous nature of javascript ");
+            let data = await getData();
+            console.log("now this and following lines would have run if we hadn't use await keyword above");
+            console.log("but now these lines which are below the await won't run as ");
+            console.log("await keyword will wait to finish getData function i mean to get resolved");
+        }
+    </script>
+
+    <script>
+        /*✳️....async and await in SHORT AND SIMPLE....✳️*/
+        //settle means *resolve* or *reject*.
+        //resolve means promise has settled successfully.
+        //reject means promise promise has not settled successfully.
+
+        /*⚪async (short for asynchronous) is *used to write functions*that handle operations that take time,
+            like fetching data from a server,without stopping the whole program.
+            It allows the program to keep running while waiting for something to finish.
+            
+          🦄async: This keyword is added before a function to tell JavaScript that the function will be handling some long-running task in the  background.
+
+          🦄await: This is used inside an async function to pause the function until a promise is resolved (like waiting for data).
+          */
+
+            async function getData() 
+            {
+                let response = await fetch('https://api.example.com/data');
+                let data = await response.json();
+                console.log(data);
+            }
+
+        /*Here, the function getData waits for the data to be fetched, but the rest of the code can keep running without delay.*/         
+    </script>
+
+
+    <script>
+        /*5️⃣Fetch
+        fetch is a *function* used to make network requests, like getting data from a server (API) 
+        or sending data to it. 
+        It's a modern and simpler way to work with HTTP requests compared to older methods like XMLHttpRequest.
+
+        ⚪fetch(url): Takes a URL as an argument and returns a promise, which resolves to the response from the server. 
+        You can then use .then() or await to handle that response.
+        */
+
+        fetch('https://api.example.com/data') // Sends a request to the server
+        .then(response => response.json())  // Converts the response to JSON format
+        .then(data => console.log(data))    // Handles the data and logs it to the console
+        .catch(error => console.error('Error:', error)); // Catches any error
+
+        /*
+        The fetch sends a request to the given URL.
+        Once the server responds, .then() processes the response.
+        .catch() handles any errors if something goes wrong (like no internet connection).
+
+        ⚪.then method
+        .then() method is used to handle a promise after it resolves successfully
+        (like when data comes back from a server). It takes a callback function as an argument, which runs once the promise is resolved.
+        */
+    </script>
+
+    
+
+    <!--🔴🟠🟡(5) Error Handling in Javascript-->
+    <script>
+        //throw
+        let a = prompt("Enter first number");  //put 3
+        let b = prompt("Enter second number"); //put 5
+        if (isNan(a) || isNan(b))
+        {
+            throw SyntaxError("sorry this is not allowed");
+        }
+        // let sum = a + b; //it won't add above no. as it fundamentally consider a and b as string.
+        //so there is parseInt function to convert string to number.
+        let sum = parseInt(a) + parseInt(b);
+        console.log("The sum is ", sum);
+
+
+        //try{} and catch()
+        try{
+            console.log("This sum is ", sum* unknownvar);
+        }
+        catch(error)
+        {
+            console.log("Error has come..dude...");
+        }
+        finally
+        {
+            console.log("files are being closed and db connection is being closed...")
+        }
+        // finally block is used with try...catch to execute code regardless of whether an error occurs or not. 
+        //It ensures that some code will always run, no matter what happens in the try or catch blocks.
+
+        //⚪Importance of finally block
+        function finallyuse()
+        {
+            let x=1;
+            try
+            {
+                console.log("here we have returned function so below code won't execute.");
+                return true;
+            }
+            catch(error)
+            {
+                console.log("here we have returned function so below code won't execute.");
+                return false;
+            }
+            finally
+            {
+                console.log("finally is basically created specialy in case of functions as if we declare return statement in try or catch then control pointer comes out from function but with the help of finally We will be able to execute code which is after return statement....")
+            }
+        }
+    </script>
+    <!--🔴🟠🟡(6)Some Advaced part by Harry in Javascript-->
+    <script>
+        //1️⃣
+        let [x,y,...anyvariable]=[1,5,2,5,23,21,543];
+        console.log(x,y,anyvariable);  //it will print all variable in the array.
+        
+        let arr=[23,43,545,355,23];
+        console.log(sum(...arr));//using sum function and ...
+    </script>  
 </body>
 </html>
