@@ -136,8 +136,13 @@
     for (let x of arr) {  //It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists
          tet += x;
                         }
+    //SOME THING NEW ABOUT ARRAY...
+    let [x,y,...anyvariable]=[1,5,2,5,23,21,543];
+    console.log(x,y,anyvariable);  //it will print all variable in the array.
     
-
+    let arr=[23,43,545,355,23];
+    console.log(sum(...arr));//using sum function and ...
+    
     <!--Spread Operator for array-->
     //let arr=['a','b','c'];
     //console.log(arrstr);  OUTPUT:-  ['a','b','c']
@@ -499,7 +504,7 @@
      (x === y)             // is false because x is a *string* and y is an *object*
      */
 
-     //3️⃣Misunderstanding Floats\
+     //3️⃣Misunderstanding Floats
      //All numbers in JavaScript are stored as 64-bits Floating point numbers (Floats).
      let x = 0.1;
      let y = 0.2;
