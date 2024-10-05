@@ -22,6 +22,9 @@ to see status of files   staged or untracked
 git log 
 to see past history of commits
 
+q 
+to quit from current command in terminal.
+
 git commit -m "message"
 to commit files those are  in staged area
 
