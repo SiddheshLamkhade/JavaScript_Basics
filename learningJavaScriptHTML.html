@@ -7,8 +7,8 @@
 
 
     <!--🔴🟠🟡Adding javascript *file* it can be added in head or body tag in between script tags-->
-    <script scr="javaScript_Basics_Learning.js"></script>
-    <!--🔴🟠🟡JavaScript *code* be added in  HTML code inside head or body tags with the help of script tag. -->
+    <script src="javaScript_Basics_Learning.js"></script>
+    <!--🔴🟠🟡JavaScript *code* be added in  HTML code inside head or body tags with the help of script tag.-->
      <script>
      function myFunction() 
      {
@@ -17,8 +17,8 @@
      </script>
 
     <!--🔴🟠🟡JavaScript code can be added *within* script tag or *without* script tag in body *Using DOM*-->
-    <!--External Css-->
 
+    <!--External Css-->
     <link rel="stylesheet" href="mycssfile.css">
 </head>
 
@@ -39,7 +39,7 @@
    <p id="fun">A JavaScript function is a block of JavaScript code, that can be executed when "called" for .
     function can be called when an event occurs, like when the user clicks a button.</p>
     
-   <button onclick="myFunction()">Click to see magic of function</button>
+   <button onclick="myFunction()"> Click to see magic of function </button>
 
    <script>
     function greet()
@@ -89,7 +89,7 @@
    <p>JavaScript has dynamic types. This means that the same variable can be used to hold different data types:</p>
    <!--String,Number,Bigint,Boolean,Undefined,Null,Object-->
    <p> The object data type can contain both built-in objects , and User defined objects </p>
-   <p> Built-in object types can be: Functions, Arrays, Maps, Sets. And Userdefined can be anything </p>
+   <p> Built-in object types can be: Functions, Arrays, Maps, Sets,NULL And Userdefined can be anything </p>
 
    <p> Always declare a variable with const when you know that the value should not be changed</p>
    <p> Javascript numbers are always one type : double (64-bit floating point) </p>
@@ -125,13 +125,15 @@
 
     //Arrays.......................................................................
     //elements can be of different types
+    //Arrays are mutable, which means you can modify them by adding, removing, or changing elements.
     const arr = ['Arrayele','arman',55,'salman','Ram']; //Can't Reassign this variable arr=['arman','salman','Ram']; error
     arr[1]='Lakshman';              //Can changes the elments in array
     arr.push("Shree");             // Can Add elements in array
     console.log(arr);
-    //Displaying a JavaScript object
+    //Displaying a JavaScript object.
     document.getElementById("forarr").innerHTML=arr;
     document.getElementById("ar1").innerHTML=arr;
+
     let tet = "";
     for (let x of arr) {  //It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists
          tet += x;
@@ -377,18 +379,27 @@
           
     <!--🔴🟠🟡(8) JavaScript Events-->
     <p> HTML events are "things" that happen to HTML elements.</p>
-    <p> Here is a list of some common HTML events onchange....... An HTML element has been changed*
+    <p> Here is a list of some common HTML events               
+        onchange....... An HTML element has been changed*
         onclick    ........The user clicks an HTML element*
         onmouseover.......The user moves the mouse over an HTML element*
         onmouseout .........The user moves the mouse away from an HTML element*
         onkeydown  ......The user pushes a keyboard key*
-        onload     ......The browser has finished loading the page</p>
+        onload     ......The browser has finished loading the page </p>
     <!--You will learn a lot more about events and event handlers in the HTML DOM chapters.-->
     
 
     <!--🔴🟠🟡(9) JavaScript Strings-->
     <!-- \ backslash escape character-->
     <!--\n id used for	New Line-->
+    <!--In JavaScript, strings are immutable, which means you cannot directly update or change a character in a string. 
+    For example
+    var name = "Chaf";
+    name[2] = 'e'; // nothing changes.
+    console.log(name); // Chaf
+    However, you can create a new string with the desired changes.
+    var newName = name.replace('a', 'e');
+    -->
     <script>
         let b="I am \"Siddhesh\" ";
         let texst='It\'s alright.';
@@ -403,6 +414,16 @@
         console.log(b.indexOf("dd"));
         console.log(b.startsWith("It"));        
     </script>
+
+    <!--
+    String slicing
+    String slicing in JavaScript involves extracting a portion of a string by specifying the starting and ending indices.
+    
+    var originalString = "Hello, World!";
+    var slicedString = originalString.slice(7, 12);
+    console.log(slicedString); // World  (n-1)
+
+    -->
 
     <!--🔴🟠🟡(10) JavaScript Date Constructor-->
     <p id="date"></p>

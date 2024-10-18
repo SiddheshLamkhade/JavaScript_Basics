@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!--🔴🟠🟡(1) Callback Function, Asynchronous functions,Javascript Promises-->
+     
+     <script>
+        /*1️⃣Callback Function
+         A callback is a function passed as an argument to another function.
+         Means function can be passed to another function as an argument.
+ 
+         Function Sequence:-
+         JavaScript functions are executed in the sequence they are called. Not in the sequence they are defined.
+        */
+ 
+        const callbackfun=(arg)=>{console.log(arg)};
+        const func=(src,callbackfun)=>{callback("Harry")}; 
+        // When you pass a function as an argument, remember not to use parenthesis.
+     </script>
+ 
+     <script>
+         /*2️⃣Asynchronous functions - setTimeout
+         The setTimeout function in JavaScript is used to execute a function or a block of code after a specified amount of time. The delay is measured in milliseconds.
+          Syntax:-                    setTimeout(function, delay);
+         --function: The code you want to run after the delay.
+         --delay: The time in milliseconds (1000 milliseconds = 1 second) after which the function will run.
+ 
+         In the real world, callbacks are most often used with Asynchronous functions.        
+         In the example below , myFunction is used as a callback.
+         myFunction is passed to setTimeout() as an argument.
+         3000 is the number of milliseconds before time-out, so myFunction() will be called after 3 seconds.
+         */
+ 
+         setTimeout(myFunction, 3000);  //Asynchronous function
+         function myFunction()          //Callback function
+         {
+             document.getElementById("demo").innerHTML = "I love You !!";
+         }
+     </script>
+ 
+</body>
+</html>
