@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--🔴🟠🟡(1)Synchronous and Asynchronous function-->
+
+          <script>
+              /*1️⃣Synchronous function
+              Synchronous means , the code runs in a particular sequence of instruction
+              given in the program.
+              Each instructions waits for the previous instructions to complete its execution.
+          */
+          </script>
+ 
+          <script>
+              /*2️⃣Asynchronous functions
+              Due to synchronous programming, sometimes imp instructions get blocked due
+              to some previous instructions, which causes a delay in the UI.
+              Asynchronous code execution allows to execute next instructions immediateyly 
+              and doesn't block the flow.
+        */
+          </script>
+
+    <!--🔴🟠🟡(2)Callback Function-->
+
+          <script>
+            /*
+            function sum (a,b)
+            {
+                console.log(a+b);
+            }
+            function calculator(a,b,sum)  //sum function is passed as an argument hence called as Callback function.
+            {
+                sum(a,b);   
+            }
+            calculator(1,2,sum);  //After calling calculator this calculator function will
+            call to sum funtion.
+            */
+         </script>
+
+    <!--🔴🟠🟡(2.1)Asynchronous function (   setTimeout( , )    )-->
+
+        <script>
+            /*setTimeout(,){}
+            function getData(dataId){//takes 2sec to fetch data
+            setTimeout(  ()=>{console.log("data",dataId);}  ,  2000  )
+            }
+            
+            //after 2sec this arrow fun will run.
+        </script>
+
+    <!--🔴🟠🟡(2.2) Call back hell-->
+
+    <script>
+        /*
+            Nested callbacks stacked below one another forming a pyramid structure.(Pyramid of Doom)
+
+            it means call back in call back multiple times.
+            e.g
+
+
+            function getData(datId , getNextData)
+            {
+                setTimeout(()=>{console.log("data",dataId);
+                if (detNextData){getNextData();
+                }
+                },2000);
+            }
+            //callback hell ⏬
+            getData(1,()=>{
+                console.log("getting data2...");
+                getData(2,()=>{
+                    console.log("getting data3...");
+                    getData(3,()=>{
+                        console.log("getting data4...");
+                        getData(4);
+                     });
+                });
+            });
+
+        */
+    </script>
+    
+    
+    <!--🔴🟠🟡(3) Promises-->
+    <script>
+        /*
+        To avoid callback hell , Promises were introduced.
+        Promise is an object in JS.
+        It is solution to callback hell.
+
+        var ans = new Promise ((res,rej)=>{if(true){return res();} //as it is object
+        else
+        {
+            return rej();
+        }
+        })
+
+        ans.then(function(){console.log("resolve hogaya")})
+        .catch(function(){console.log("reject hua tha")})
+
+        */
+
+       function asyncfun()m           //this function returns promise
+       {
+            return new Promise(
+                (resolve,reject)=>{setTimeout(()=>{console.log("data1");
+                resolve("success");},4000);
+                             
+        });
+       }
+       
+       console.log("fetching data1...");
+       let p1 = asyncFun();       //this stores promise
+
+       console.log("fetching data");
+       p1.then((res)=>{console.log(res);});//if promise is resolved then "then" this method is used.
+       //otherwise catch is used.
+
+    </script>
+
+
+<!--🔴🟠🟡(4) Async and Await-->
+<script>
+    /*
+        To avoid Promise chaining , Async-Await were introduced.
+
+        Async and Await are keywords which can be used in functions.
+        we can make any normal function Async by using this keyword.
+
+        async function myFun(){.......}
+
+        1️⃣Async
+        async function always returns a PROMISE.
+        2️⃣Await
+        await can be only used in async function.
+        await pauses the execution of its surrounding async function 
+        until the promise is settled.
+        Jab tak promise pending hai tab tk await karyega
+    */
+</script>
+
+
+<!--🔴🟠🟡(5) IIFE: Immediately Invoked Function Expression-->
+<script>
+    /*  1️⃣( function(){...} )  ();
+
+        2️⃣( ()=>{...} ) ();
+
+        3️⃣ ( async ()=>{...} ) ();
+
+        IIFE is a function that is called immediately as soon as it is defined.
+    */
+</script>
+ 
+</body>
+</html>

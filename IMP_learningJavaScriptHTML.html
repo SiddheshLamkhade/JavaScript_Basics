@@ -110,8 +110,8 @@
    <p>
     The keyword const is a little misleading in the case of Constant Objects and Arrays as 
     There We can't Reassign but We can 
-             --Change the elements of constant array  
-             --Change the properties of constant object
+             --Change the elements of constant array.
+             --Change the properties of constant object.
    </p>
    
    <p id="forobject"></p>
@@ -161,13 +161,13 @@
     //Car objects have the same properties, but the values differ from car to car.
     //It is a common practice to declare objects with the ....const.... keyword.
     //Properties can be primitive values, functions, or even other ..objects..They don't have index.
-    const car={objtype:"valueofobj",objmodel:"200",color:"black"}; //Can't Reassign obj={objtype:"toyoto"}  error
+    const car={objtype:"valueofobj" , objmodel:"200",color:"black"}; //Can't Reassign obj={objtype:"toyoto"}  error
     car.color="red";       //Can change a property of object
     car.owner="Siddhesh";  //Can Add a property
     delete car.owner;
-    console.log(car);
+    console . log(car);
 
-    const NewObject = new Object();  //or also *const NewObject={}* ; is best method to create object
+    const NewObject = new Object();  //or also *  const NewObject={}  * ; is best method to create object.
     //there is no need to use new Object().
     //For readability, simplicity and execution speed, use the object literal.
     // object literal in JavaScript is a simple way to create an object using curly braces {}.
@@ -175,8 +175,8 @@
     NewObject.property2="value2";  
     console.log(NewObject);
 
-    //Displaying a JavaScript object
-    //if you directly print by using doc... then it will not be printed as it is object not primitive data type
+    //Displaying a JavaScript object.
+    //if you directly print by using doc... then it will not be printed as it is object not primitive data type.
     document.getElementById("forobject").innerHTML=NewObject.property1 + "    --------" + "This is printed using document.getElementById().innerHTML= ";
     let text="";
     //To iterate object We have For In Loop for( let var_name in name_of_object){}
@@ -187,13 +187,13 @@
 
     for(let key in car)
     {
-        console.log(key);  //OUTPUT:- it access only key :- objtype objmodel color
+        console.log(key);  //OUTPUT:- it access only key :- objtype objmodel color.
 
-        console.log(car[key]); //OUTPUT:- it access only values :- valueobj 200 black 
+        console.log(car[key]); //OUTPUT:- it access only values :- valueobj 200 black.
 
         console.log(key,":",car[key]); // it access both key-value.
 
-        //object.key(nameofobject) - gives array of object properties
+        //object.key(nameofobject) - gives array of object properties.
         console.log(object.keys(car)); //output: ["objtype","objmodel","color"]
         //object.values(nameofobject) - gives array of object values
         console.log(object.values(car)); //output: ["valueobj",200,"black"]
