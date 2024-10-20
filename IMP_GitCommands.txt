@@ -1,0 +1,106 @@
+git init
+first commands to track all the files in particular folder
+
+ls
+to see all files in the opened folder
+
+cd <name of folder>
+to change folder
+
+cd ..
+to step back one folder from current folder
+
+git add <name of file>
+to add file to staging area
+
+git add * 
+all files will be added to staging area
+
+git status
+to see status of files   staged or untracked 
+
+git log 
+to see past history of commits
+
+q 
+to quit from current command in terminal.
+
+git commit -m "message"
+to commit files those are  in staged area
+
+git branch
+to return name of branch
+
+----------------------if we modify any file that has been alreay commited-----------------
+git diff 
+it checks commited file with that same file that now has been modified by user
+
+git add <name of file>
+name of modified file which is already commited previously
+
+git commit -m "message"
+we can also recommit that modified file it will overwrite old file with new modified file
+
+git checkout <commit code> --name of that particular file in that commit which you want to see
+To see old versions of that file 
+
+git checkout master -- *
+to come again to see  latest version 
+
+------------------if any mistake happend so to undo actions----------------
+git restore . or filename (. means all files)
+If we add any error code in our file so if we run this command then we will get last working version of this file
+
+git restore --staged . or file name              # to unstage  
+git restore . or file name                to discard changes in the working directory
+But if file is in staging area So it will unstaged that file 
+
+
+git restore --worktree . or filename
+But if file is in staging area with changes that was supposed to there and added more changes to file 
+it will not unstage your file just removes the changes that are on local file not in staged file
+
+git reset --soft HEAD^                               uncommit and keep the changes
+if we did commit then this command uncommit and gives its older version
+git reset --hard HEAD^    uncommit and discard the changes
+
+
+--------------Remote Repository GITHUB -----------------
+A remote repo refers to a version of your project that resides on a network server or hosted repository on the internet.
+
+just copy paste 3 commands on repo 
+then 
+
+git push 
+to push latest files on GITHUB
+
+git remote -v 
+it tells whether ur local repo is linked with remote repo
+
+git pull
+to pull latest repos from github to our local system 
+those files which were saved with the help of github
+ 
+ -----------------------------------------------------------------
+mkdir nameoffolder
+to create new folder
+
+git clone <link of http of anyones public repo>
+it downloads others repo in our system
+
+fork through GITHUB it creates copy of others repo in our accout
+and we can send pullrequest to owner so my changes will be added to main project 
+
+.gitignore
+it is file in which we adds name of files which we don't want to be commited
+
+--------------------------------------------------------------
+git clean -n
+deletes untracked files
+
+git clean -f ------------ before using run above command don't use
+
+Remove the File:    git rm filename
+Use the git rm command to delete a file that is being tracked by Git.
+
+
